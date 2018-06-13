@@ -243,7 +243,7 @@ void dayEnd(void){
               }
          }    
 		 else{
-		 	bankruptcy();
+		 	invd();
 		 } 
 	} 
 }
