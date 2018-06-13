@@ -124,7 +124,22 @@ void quit(void){
 	Sleep(300);
 	exit(0);
 }
-
+void invd (void){
+	clr();
+  	cout << "\n You've been attacked!\n You have no troops to defend...\n\n Your workers are unprotected\n and you have lost everything\n\n GAMEOVER...\n";
+  	cout << "\n1-Load from last Save\n2-Quit";
+  	char bc;
+  	bc=getche();
+  	switch(bc){
+          case'1':{
+            load();
+            break;
+          }
+          case'2':{
+            quit();
+          }
+      }	
+}
 void bankruptcy(void){//Lose
 	clr();
   	cout << "\nYou've ran out of Gold and Human Resources!\n";
@@ -203,7 +218,7 @@ void dayEnd(void){
 	cout << "\n\nEnd of Day:\n-----------------\n";
   	int rng;
       rng = rand() % 4;
-      if (T >= 0&& W>=0){
+      if (T >= 0){
 	 
 	if(rng == 1){//Battles
 		if(T>0){
@@ -218,7 +233,7 @@ void dayEnd(void){
 		cout<<"\n\n Our Stratigists have predicted we have a %"<< XD <<" of winning!";
 		enter();
          if (XD > 100){
-         	winbat();
+         	winbat(); 
 		 }
 		else if((rand() % 101) < XD){
               	winbat();
