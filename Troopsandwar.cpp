@@ -1,3 +1,5 @@
+
+//Josh, the shop is broken
 #include <iostream>
 #include <windows.h>
 #include <math.h>
@@ -5,8 +7,8 @@
 #include <conio.h>
 #include <cstdlib>
 #include <iomanip>
-
 using namespace std;
+
 class text{
 
 	public :
@@ -84,7 +86,7 @@ void enter(void){//Enter
 	clr();
 }
 string Name;
-int G, L, X, T, W, d, month, troopsMax, workersMax, deaths, y, ST, eta;
+int G, L, X, T, W, d, month, troopsMax, workersMax, deaths, y, ST, eta,troopslost;
 char C;
 void save(void){//Save
 	clr();
@@ -160,35 +162,35 @@ void bankruptcy(void){//Lose
 
 void winbat(void){
 	clr();
-	int troopGain = ((1.5*L) + ((X/7.5)/2))/2;
+	int EFI;
+	
+	int troopslost = troopslost = EFI/2;
+  	
 	int workersGain = W/8;
-	cout << "We defended our home and we lost " << troopGain << " troops, " << workersGain << " workers!";
-	T = T - troopGain;
+	cout << "We defended our home and we lost " << troopslost << " troops, " << workersGain << " workers!";
+	T = T - troopslost;
 	W = W - workersGain;
-	cout << "\nWe gained " << 300*(L*1.1) << " Experience!\n";
-	X = X + 300*(L*1.1);
-	cout << "We gained " << 2500*(L*1.1) << " Gold!\n\n";
-	G = G + 2500*(L*1.1);
-	deaths = deaths + troopGain/1.25;
+	cout << "\nWe gained " << 5 << " Experience!\n";
+	X = X + 5;
+	cout << "We gained " << 500 << " Gold!\n\n";
+	G = G + 500;
+	deaths = deaths + troopslost/1.25;
 	enter();
 }
 
 void losebat(void){
+	int EFI;
 	clr();
-	int troopGain = ((1.5*L) + ((X/7.5)/2))/2;
 	
-		
-		
-		
-		
+	troopslost = troopslost =  EFI/1.25;
 	
 	int workersGain = W/8;
-	cout << "We lost the defense we lost " << troopGain << " troops, " << workersGain << " workers and lost our land! \n(-" << (T*(1+(L/10))) * 2 << "(Troops)\n(-" << (T*(1+(L/10))) * 2 << "(Workers)";
+	cout << "We lost the defense...\n we lost " << troopslost << " troops, " << workersGain << " workers and lost our land! \n(-" << (T*(1+(L/10))) * 2 << "(Troops)\n(-" << (T*(1+(L/10))) * 2 << "(Workers)";
 	enter();
 	
-	troopsMax = troopsMax - ((T*(1+(L/7.5))) * 2)/5;
-	workersMax = workersMax - ((T*(1+(L/7.5))) * 2)/5;
-	T = T - troopGain;
+	troopsMax = troopsMax - troopsMax/4;
+	workersMax = workersMax - workersMax/4;
+	T = T - troopslost;
 	W = W - workersGain;
 	if(workersMax < 1){
 		workersMax = 0;
@@ -202,7 +204,7 @@ void losebat(void){
 	if(troopsMax < T){
 		T = troopsMax;
 	}
-	deaths = deaths + troopGain;
+	deaths = deaths + troopslost;
 	enter();
 	
 
@@ -219,39 +221,112 @@ void dayEnd(void){
 	cout << "\n\nEnd of Day:\n-----------------\n";
   	int rng;
       rng = rand() % 4;
-      if (T >= 0){
-	 
+	  int rng2;
+	 rng2 = rand() % 4;
 	if(rng == 1){//Battles
 		if(T>0){
-		
+              
+              switch(rng2){
+			  
+              case 0:{
+	
 		float EF;
 		
 		EF = (1.5*L) + ((X/7.5)/2)-(EF/3);
 		int EFI = (1.5*L) + ((X/7.5)/2)-(EF/3);
-            EF = EFI = EFI/2;
+            EF = EFI/2;
 		cout << "An army approaches\nThey have ~" <<EFI << " Troops\n";
-		float XD = ((T/EF)/2)*100;
-		cout<<"\n\n Our Stratigists have predicted we have a %"<< XD <<" of winning!";
+		float BP = ((T/EF)/2)*100;
+		cout<<"\n\n Our Stratigists have predicted we have a %"<< BP <<" of winning!";
 		enter();
-         if (XD > 100){
+         if (BP > 100){
          	winbat(); 
 		 }
-		else if((rand() % 101) < XD){
+		else if((rand() % 101) < BP){
               	winbat();
             }
         	else{
               	losebat();
               }
+              break;
+              }
+              case 1:{
+	
+		float EF;
+		
+		EF = (1.5*L) + ((X/7.5)/2)-(EF/3);
+		int EFI = (1.5*L) + ((X/7.5)/2)-(EF/3);
+            EF = EFI/2;
+		cout << "An army approaches\nThey have ~" <<EFI << " Troops\n";
+		float BP = ((T/EF)/2)*100;
+		cout<<"\n\n Our Stratigists have predicted we have a %"<< BP <<" of winning!";
+		enter();
+         if (BP > 100){
+         	winbat(); 
+		 }
+		else if((rand() % 101) < BP){
+              	winbat();
+            }
+        	else{
+              	losebat();
+              }
+              break;
+              }
+      
+            case 2:{
+
+		float EF;
+		
+		EF = (1.5*L) + ((X/7.5)/2);
+		int EFI = (1.5*L) + ((X/7.5)/2);
+            EF = EFI/2;
+		cout << "An army approaches\nThey have ~" <<EFI << " Troops\n";
+		float BP = ((T/EF)/2)*100;
+		cout<<"\n\n Our Stratigists have predicted we have a %"<< BP <<" of winning!";
+		enter();
+         if (BP > 100){
+         	winbat(); 
+		 }
+		else if((rand() % 101) < BP){
+              	winbat();
+            }
+        	else{
+              	losebat();
+              }
+              break;
+              }
+              case 3:{
+
+		float EF;
+		
+		EF = (1.5*L) + ((X/7.5)/2);
+		int EFI = (1.5*L) + ((X/7.5)/2);
+            EF = EFI/2;
+		cout << "An army approaches\nThey have ~" <<EFI << " Troops\n";
+		float BP = ((T/EF)/2)*100;
+		cout<<"\n\n Our Stratigists have predicted we have a %"<< BP <<" of winning!";
+		enter();
+         if (BP > 100){
+         	winbat(); 
+		 }
+		else if((rand() % 101) < BP){
+              	winbat();
+            }
+        	else{
+              	losebat();
+              }
+              break;
+              }
+              }
          }    
+     // ------------
 		 else{
 		 	invd();
 		 } 
 	} 
-}
 
-else {
-	bankruptcy();
-}
+
+
   	float pd = d;
   	if( pd/7 == 1 ||pd/7 == 2 ||pd/7 == 3 ||pd/7 == 4){//Pay
 		G = G + (W*250);
@@ -1053,3 +1128,5 @@ void menu(void){
 int main(){//Lieterialleeyeyeyyeyeyey Nothing
 	menu();
 }
+
+   
