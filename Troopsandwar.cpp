@@ -802,7 +802,7 @@ void game(void){
 						cout << G << " - Gold\n";
 						cout << "\nTroops:           " << T << " / " << troopsMax; 
 						cout << "\nWorkers:          " << W << " / " << workersMax;
-						cout << "\n\n1- 1 Troop      (20G)\n2- 10 Troops    (200G)\n3- 100 Troops   (10000G)\n5- Fill Max (Relative)\n";
+						cout << "\n\n1- 1 Troop      (20G)\n2- 10 Troops    (200G)\n3- 100 Troops   (10000G)\n4- Fill Max (Relative)\n5- Cancel";
 						char tsi;
 						tsi=getche();
 						switch(tsi){
@@ -851,12 +851,12 @@ void game(void){
 								}
 								break;
 							}
-							case'4':{
+							case'5':{
 								clr();
 								cout << "Options:\n--------\n\n1-";
 								break;
 							}
-							case'5':{
+							case'4':{
 								clr();
 								if(G>((troopsMax-T)*20) ){
 								G = G - (troopsMax-T)*20;
@@ -875,7 +875,7 @@ void game(void){
 							clr();
 							cout << "\nTroops:           " << T << " / " << troopsMax; 
 							cout << "\nWorkers:          " << W << " / " << workersMax;
-							cout << "\n\n1- 1 Worker     (15G)\n2- 10 Workers   (150G)\n3- 100 Workers  (1500G)\n4- Cancel\n";
+							cout << "\n\n1- 1 Worker     (15G)\n2- 10 Workers   (150G)\n3- 100 Workers  (1500G)\nx4- Fill Max (Relative)\n5- Cancel";
 							char wsi;
 							wsi=getche();
 							switch(wsi){
@@ -925,9 +925,16 @@ void game(void){
 									break;
 								}
 								case'4':{
-									
+									clr();
+								if(G>((workersMax-W)*20) ){
+								G = G - (workersMax-W)*20;
+								W = workersMax;
 									break;
 								}
+                                              case'5':{
+                                                break;
+                                              }
+                                                }
 							}
 						break;
 					}
