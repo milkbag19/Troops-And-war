@@ -331,7 +331,7 @@ void dayEnd(void){
   	if( pd/7 == 1 ||pd/7 == 2 ||pd/7 == 3 ||pd/7 == 4){//Pay
 		G = G + (W*250);
 		int GoldChange = (W*250);
-		cout << "You have sold your worker's product!\nIts payday fellas!\nWe earned " << GoldChange << " Gold!";
+		cout << "\n-Plus " << GoldChange << " Gold!";
 	}
 	if(d==30){//Month Up
 		month++;
@@ -767,7 +767,7 @@ void game(void){
 		cin.clear();
 		clr();
 		int Cit = (L+W+T)*1.25;
-		cout <<"The " << Name << " Empire! \n\n";
+		cout << Name << "'s Army\n\n";
 		cout << "\nGold:             " << G;
 		cout << "\nLevel:            " << L;
 		cout << "\nExperience:       " << X;
@@ -778,7 +778,6 @@ void game(void){
 		cout << "\nDate:             " << month << " / " << d << " / " << y;
 		cout << "\n                  m / d / y";
 		cout << "\nDeaths:           " << deaths;
-		cout << "\n\nWhat shall we do commander?";
 		cout << "\n\n1-Pass Time\n2-Shop\n3-Map\n4-Options\n5-Load\n6-Save\n7-Exit\n\n";
 		char gi;
 		gi=getche();
@@ -867,6 +866,7 @@ void game(void){
 							  else {
 							  	cout<<"Not enough Gold or space, returning to Main Screen\n";
 							  	enter();
+                                                  
 							  }
 							}
 						}
@@ -876,7 +876,7 @@ void game(void){
 							clr();
 							cout << "\nTroops:           " << T << " / " << troopsMax; 
 							cout << "\nWorkers:          " << W << " / " << workersMax;
-							cout << "\n\n1- 1 Worker     (15G)\n2- 10 Workers   (150G)\n3- 100 Workers  (1500G)\nx4- Fill Max (Relative)\n5- Cancel";
+							cout << "\n\n1- 1 Worker     (15G)\n2- 10 Workers   (150G)\n3- 100 Workers  (1500G)\n4- Fill Max (Relative)\n5- Can";
 							char wsi;
 							wsi=getche();
 							switch(wsi){
@@ -926,16 +926,9 @@ void game(void){
 									break;
 								}
 								case'4':{
-									clr();
-								if(G>((workersMax-W)*20) ){
-								G = G - (workersMax-W)*20;
-								W = workersMax;
+									
 									break;
 								}
-                                              case'5':{
-                                                break;
-                                              }
-                                                }
 							}
 						break;
 					}
@@ -1050,8 +1043,8 @@ void game(void){
 void menu(void){
 	tobj.Aqua();
 	for(;;){
-		cout << "\n---TROOPS AND WAR---\n\n";
-		cout << "1. <New Game>\n2. <Load Game>\n3. <Delete Save>\n4. <Exit>\nInput : ";
+		cout << "\n                 Troops and War,\n\n";
+		cout << "1. New Game\n2. Load Game\n3. Delete Save\n4. Exit\n\n";
 		char mmi;
 		mmi=getche();
 		switch(mmi){
@@ -1068,7 +1061,7 @@ void menu(void){
 				X = 0;
 				L = 1;
 				clr();
-				cout << "What would you like to name your empire? : ";
+				cout << "Enter Your Name: ";
 				cin >> Name;
 				game();
 				break;
